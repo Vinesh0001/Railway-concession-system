@@ -64,11 +64,32 @@ function doPost (e) {
 ![image](https://github.com/Vinesh0001/Railway-concession-system/assets/114330106/1e427e5e-acb4-4390-a4ce-cb8976af18c7)
 
 **3.Click on trigger**
+
 ![image](https://github.com/Vinesh0001/Railway-concession-system/assets/114330106/e6b77577-91f9-409f-80f5-4afc24b8b20b)
 
 **4.Create trigger by clicking Add Trigger (+) symbol.**
+
 ![image](https://github.com/Vinesh0001/Railway-concession-system/assets/114330106/bbb4c209-687b-4ddf-8ca1-1e39076b3712)
 
 ![image](https://github.com/Vinesh0001/Railway-concession-system/assets/114330106/a2d2eff4-bb67-4e6e-9853-f5859759d2ae)
 
-**6.And now paste it in you js code or function.**
+**6.Click on deploy.**
+
+![image](https://github.com/Vinesh0001/Railway-concession-system/assets/114330106/d1ebda4f-aeba-4e23-9979-f8bc566ef12c)
+
+* **Select type Web App**
+
+![image](https://github.com/Vinesh0001/Railway-concession-system/assets/114330106/2a67aee8-f6fb-4082-ac9c-9a7957f44fee)
+
+* **New deployment and make who can access only me**
+
+![image](https://github.com/Vinesh0001/Railway-concession-system/assets/114330106/ccc2f8d8-b643-43bb-ab57-c6e40ec5f635)
+
+* **Click on deploy**
+
+**7.Copy the link.**
+
+![image](https://github.com/Vinesh0001/Railway-concession-system/assets/114330106/a1e5a7c5-fe0a-48b4-ae17-c22aa9e8cd26)
+
+**8.Paste it in your js file inside a function.**
+![file](https://github.com/Vinesh0001/Railway-concession-system/Files/js/common.js)
