@@ -87,9 +87,26 @@ function doPost (e) {
 
 * **Click on deploy**
 
-**7.Copy the link.**
+**7.Copy the link of web app.**
 
 ![image](https://github.com/Vinesh0001/Railway-concession-system/assets/114330106/a1e5a7c5-fe0a-48b4-ae17-c22aa9e8cd26)
 
-**8.Paste it in your js file inside a function.**
-![file](https://github.com/Vinesh0001/Railway-concession-system/Files/js/common.js)
+**8.Paste it in your create file inside a function [file].(https://github.com/Vinesh0001/Railway-concession-system/blob/main/Files/create.html)**
+
+* **Paste this code inside that html file and the copied link inside scriptURL.**
+```
+function submitForm() {
+  
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwhWXixAc-R8E4rhxwiXjc01T2Dftp4GIVnndmThJUFDYRg60mVnCdo7HVjGM8v4If3ZA/exec';
+    const form = document.forms['form'];
+  
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      // .then(() => {  window.location.reload(); })
+      .catch(error => console.error('Error!', error.message))
+  document.getElementById("form").reset();
+}
+```
+
+* If you want to check the working can see in my excel sheet [My excel sheet](https://docs.google.com/spreadsheets/d/1X4pZq3oFfd7ACuIZ8wEJL53cSwwSK7m8V0qDNa_AHmA/edit#gid=0).
+
+**9.And you are done!**
