@@ -18,45 +18,36 @@ So, to save time and all the offline paper work of students, college and Railway
 
 **2.Copy and paste this code.**
 
-const sheetName = 'Sheet1'
+_const sheetName = 'Sheet1'
 const scriptProp = PropertiesService.getScriptProperties()
-
 function initialSetup () {
   const activeSpreadsheet = SpreadsheetApp.getActiveSpreadsheet()
   scriptProp.setProperty('key', activeSpreadsheet.getId())
 }
-
 function doPost (e) {
   const lock = LockService.getScriptLock()
   lock.tryLock(10000)
-
   try {
     const doc = SpreadsheetApp.openById(scriptProp.getProperty('key'))
     const sheet = doc.getSheetByName(sheetName)
-
     const headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0]
     const nextRow = sheet.getLastRow() + 1
-
     const newRow = headers.map(function(header) {
       return header === 'Date' ? new Date() : e.parameter[header]
     })
-
     sheet.getRange(nextRow, 1, 1, newRow.length).setValues([newRow])
-
     return ContentService
       .createTextOutput(JSON.stringify({ 'result': 'success', 'row': nextRow }))
       .setMimeType(ContentService.MimeType.JSON)
   }
-
   catch (e) {
     return ContentService
       .createTextOutput(JSON.stringify({ 'result': 'error', 'error': e }))
       .setMimeType(ContentService.MimeType.JSON)
   }
-
   finally {
     lock.releaseLock()
-  }
+  }_
 }
 
 ![image](https://github.com/Vinesh0001/Railway-concession-system/assets/114330106/1e427e5e-acb4-4390-a4ce-cb8976af18c7)
@@ -66,8 +57,7 @@ function doPost (e) {
 
 **4.Create trigger by clicking Add Trigger [plus(+)] symbol.**
 
-**5. ![image](https://github.com/Vinesh0001/Railway-concession-system/assets/114330106/bbb4c209-687b-4ddf-8ca1-1e39076b3712)
+**5.** ![image](https://github.com/Vinesh0001/Railway-concession-system/assets/114330106/bbb4c209-687b-4ddf-8ca1-1e39076b3712)
 ![image](https://github.com/Vinesh0001/Railway-concession-system/assets/114330106/a2d2eff4-bb67-4e6e-9853-f5859759d2ae)
-**
 
 **6.And now paste it in you js code.**
