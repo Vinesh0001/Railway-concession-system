@@ -18,7 +18,7 @@ So, to save time and all the offline paper work of students, college and Railway
 
 **2.Copy and paste this code.**
 
-_const sheetName = 'Sheet1'
+const sheetName = 'Sheet1'
 const scriptProp = PropertiesService.getScriptProperties()
 function initialSetup () {
   const activeSpreadsheet = SpreadsheetApp.getActiveSpreadsheet()
@@ -47,7 +47,7 @@ function doPost (e) {
   }
   finally {
     lock.releaseLock()
-  }_
+  }
 }
 
 ![image](https://github.com/Vinesh0001/Railway-concession-system/assets/114330106/1e427e5e-acb4-4390-a4ce-cb8976af18c7)
