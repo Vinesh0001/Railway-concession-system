@@ -25,7 +25,7 @@
                   </div> -->
                     <h3 id="msg"></h3>
                     <h1>Concession Form</h1>
-                    <form onsubmit="createInfo()" action="javascript:void[0]" name="form" id="form">
+                    <form action="/submit" method="post"  name="form" id="form">
                         <div class="mb-3">
                           <label for="srNo" class="form-label" >Sr no</label>
                           <input type="text" class="form-control" id="srNo" name="Sr.No" required readonly>
@@ -33,6 +33,10 @@
                         <div class="mb-3">
                           <label for="name" class="form-label">Name</label>
                           <input type="text" class="form-control" id="name" name="Name" placeholder="Enter your full name" required >
+                        </div>
+                        <div class="mb-3">
+                          <label for="id" class="form-label">ID</label>
+                          <input type="text" class="form-control" id="id" name="ID" placeholder="Enter your college id no." required >
                         </div>
                         <div class="mb-3">
                           <label for="dept" class="form-label">Department</label>
