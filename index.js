@@ -62,68 +62,19 @@ app.post('/submit', (req, res) => {
     if (err) {
 
       console.error('Error storing data:', err);
-      res.status(500);
-      res.send(`
-      <script>
-        alert("Error Submitting form");
-        window.location.href = "/view";
-      </script>`);
+      res.status(500).send('Error storing data');
     } else {
       console.log('Data stored successfully');
-      res.status(200);
-      res.send(`
-      <script>
-        alert("Form Submitted Successfully");
-        window.location.href = "/view";
-      </script>`);
+      res.status(200).send('Data stored successfully');
     }
   });
 });
 
-//view
-app.get('/view', (req, res) => {
-  res.sendFile(__dirname + "/public/view.html");
-})
-
-app.get("/viewId", (req, res) => {
-  const id = req.query.clg_id;
-  const query = "SELECT * FROM student_details WHERE clg_id = ?";
-
-  connection.query(query, [id], (err, result) => {
-    if (err) {
-      console.log("Error: ", err);
-      res.status(500).json({ message: "Error" });
-    } else {
-      if (result.length > 0) {
-        console.log("Fetched data:", result);
-        res.status(200).json({ message: "Success", data: result[0] });
-      } else {
-        console.log("No data found");
-        res.status(404).json({ message: "No data found" });
-      }
-    }
-  });
+// Serve the HTML form
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/public/home.html');
 });
 
-// app.get("/viewId", (req, res) => {
-
-//   // var clg_id = localStorage.getItem("clg_id");
-//   // const clg_id = req.query.clg_id;
-
-//   const id = req.query.clg_id;
-//   const query = "Select * from student_details where clg_id = ?";
-
-//   connection.query(query, [id], (err, result) => {
-//     if (err) {
-//       console.log("Err: ", err);
-//       res.status(500).json({ message: "Err" });
-//     }
-//     else {
-//       console.log("Fetched")
-//       res.status(200).json({ message: "", id})
-//     }
-//   })
-// })
 
 // Start the server
 const port = 3000;
