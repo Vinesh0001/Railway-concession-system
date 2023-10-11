@@ -43,7 +43,7 @@ app.post('/submit', (req, res) => {
   const query = 'INSERT INTO student_details (name, clg_id, age ,dept , year, division, gender, vacation, source, destination, class, applied_date, expiry_date, voucher_no) VALUES (?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
   const values = [
     inputData.Name,
-    inputData.ID,
+    inputData.Clg_ID,
     inputData.Age,
     inputData.Department,
     inputData.Year,
@@ -62,10 +62,20 @@ app.post('/submit', (req, res) => {
     if (err) {
 
       console.error('Error storing data:', err);
-      res.status(500).json({ message: "Error Submitting Data" })
+      res.status(500);
+      res.send(`
+      <script>
+        alert("Error Submitting form");
+        window.location.href = "/view";
+      </script>`);
     } else {
       console.log('Data stored successfully');
-      res.status(200).redirect('/view')
+      res.status(200);
+      res.send(`
+      <script>
+        alert("Form Submitted Successfully");
+        window.location.href = "/view";
+      </script>`);
     }
   });
 });
@@ -74,6 +84,46 @@ app.post('/submit', (req, res) => {
 app.get('/view', (req, res) => {
   res.sendFile(__dirname + "/public/view.html");
 })
+
+app.get("/viewId", (req, res) => {
+  const id = req.query.clg_id;
+  const query = "SELECT * FROM student_details WHERE clg_id = ?";
+
+  connection.query(query, [id], (err, result) => {
+    if (err) {
+      console.log("Error: ", err);
+      res.status(500).json({ message: "Error" });
+    } else {
+      if (result.length > 0) {
+        console.log("Fetched data:", result);
+        res.status(200).json({ message: "Success", data: result[0] });
+      } else {
+        console.log("No data found");
+        res.status(404).json({ message: "No data found" });
+      }
+    }
+  });
+});
+
+// app.get("/viewId", (req, res) => {
+
+//   // var clg_id = localStorage.getItem("clg_id");
+//   // const clg_id = req.query.clg_id;
+
+//   const id = req.query.clg_id;
+//   const query = "Select * from student_details where clg_id = ?";
+
+//   connection.query(query, [id], (err, result) => {
+//     if (err) {
+//       console.log("Err: ", err);
+//       res.status(500).json({ message: "Err" });
+//     }
+//     else {
+//       console.log("Fetched")
+//       res.status(200).json({ message: "", id})
+//     }
+//   })
+// })
 
 // Start the server
 const port = 3000;

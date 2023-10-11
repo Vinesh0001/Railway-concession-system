@@ -22,12 +22,12 @@
       <div class="row">
         <div class="mx-auto col-10 col-md-8 col-lg-3">
           <!-- <div class="navbar-brand">
-                    <img src="images/VISUAL ART LOGO 1.png" alt="Logo" width="40" height="60" class="d-inline-block align-text-centre">
-                    <span class="display-11" ><b>Vasantdada Patil Pratishthan's College of Engineering & VA</b></span>
-                  </div> -->
+                  <img src="images/VISUAL ART LOGO 1.png" alt="Logo" width="40" height="60" class="d-inline-block align-text-centre">
+                  <span class="display-11" ><b>Vasantdada Patil Pratishthan's College of Engineering & VA</b></span>
+                </div> -->
           <h3 id="msg"></h3>
           <h1>Concession Form</h1>
-          <form action="/submit" method="post" name="form" id="form" onsubmit="alert()">
+          <form action="/submit" method="post" name="form" id="form">
             <div class="mb-3">
               <label for="srNo" class="form-label">Sr no</label>
               <input type="text" class="form-control" id="srNo" name="Sr.No" required readonly>
@@ -38,12 +38,12 @@
             </div>
             <div class="mb-3">
               <label for="id" class="form-label">ID</label>
-              <input type="text" class="form-control" id="id" name="ID" placeholder="Enter your college id no."
+              <input type="text" class="form-control" id="clg_id" name="Clg_ID" placeholder="Enter your college id no."
                 required>
             </div>
             <div class="mb-3">
               <label for="id" class="form-label">Age</label>
-              <input type="text" class="form-control" id="age" name="Age" placeholder="Enter your age" required>
+              <input type="text" class="form-control" onclick="setId()" id="age" name="Age" placeholder="Enter your age" required>
             </div>
             <div class="mb-3">
               <label for="dept" class="form-label">Department</label>
@@ -148,13 +148,13 @@
             </div>
 
             <!-- <div class="mb-3">
-                            <label for="image" class="form-label">Order Image</label>
-                            <input type="file" class="form-control" id="image" required accept="image/png, image/gif, image/jpeg, image/heiv, image/jpg">
-                          </div> -->
+                          <label for="image" class="form-label">Order Image</label>
+                          <input type="file" class="form-control" id="image" required accept="image/png, image/gif, image/jpeg, image/heiv, image/jpg">
+                        </div> -->
             <!-- <div class="mb-3">
-                            <label for="desc" class="form-label">Order Description</label>
-                            <textarea type="text" class="form-control" id="desc" required minlength="10"></textarea>
-                        </div>                         -->
+                          <label for="desc" class="form-label">Order Description</label>
+                          <textarea type="text" class="form-control" id="desc" required minlength="10"></textarea>
+                      </div>                         -->
             <button type="submit" class="btn btn-primary">Submit</Button>
           </form>
         </div>
@@ -165,9 +165,39 @@
   <div id="footer"></div>
   <script>
 
-    function alert() {
-      alert("Form Submitted Successfully")
+// document.getElementById('form').addEventListener('submit', function (e) {
+//       e.preventDefault();
+//       var formData = new FormData(this);
+
+//       fetch('/submit', {
+//         method: "POST",
+//         body: formData,
+//       })
+//         .then(response => response.json())
+//         .then(data => {
+//           if (data.message === "Error Submitting Data") {
+//             alert("Error Submitting Data");
+//           }
+//           else {
+//             alert("Form Submitted Successfully");
+//             window.location.href = '/view';
+//           }
+//         })
+        
+//     })
+
+    function setId(){
+      var clg_id = document.getElementById("clg_id").value
+      console.log(clg_id);
+      localStorage.setItem("clg_id",clg_id);
     }
+    
+    // document.getElementById("id").addEventListener('setId',function(e){
+    //   e.preventDefault;
+    //   const clg_id = document.getElementById("id").value
+    //   localStorage.setItem("clg_id",clg_id);
+    // })
+
     srNo = getRandom();
     function getRandom() {
 
