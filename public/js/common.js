@@ -36,7 +36,7 @@ function expiry(){
   const today = new Date();
   const dateString = today.toISOString().substr(0, 10); 
    var vacation=document.getElementById("vacation").value;
-   var issuedDate=document.getElementById("issuedDate").value=dateString;
+   var issuedDate=document.getElementById("appliedDate").value=dateString;
   var nextIssuanceDate = new Date(issuedDate);
       if (vacation === "Monthly" || vacation === "monthly") {
         nextIssuanceDate.setMonth(nextIssuanceDate.getMonth() + 1);
@@ -64,7 +64,7 @@ function createInfo(){
   var className = document.querySelector(`input[name="Class"]:checked`).value;
   var source = document.getElementById("source").value;
   var destination = document.getElementById("destination").value;
-  var issuedDate = document.getElementById("issuedDate").value;
+  var appliedDate = document.getElementById("appliedDate").value;
   var expiredDate = document.getElementById("expiryDate").value;
   var voucher = document.getElementById("voucher-no").value;
   var issuedStatus = "Pending";
@@ -80,7 +80,7 @@ function createInfo(){
       className:className,
       source:source,
       destination:destination,
-      issuedDate:issuedDate,
+      appliedDate:appliedDate,
       expiredDate:expiredDate,
       voucher:voucher,
       status:issuedStatus
@@ -146,7 +146,7 @@ function showUpdate(sr) {
   var index = getIndexOfList(sr , allForms);
   if(index == -1) {
       document.getElementById("srNo").value="";
-      document.getElementById("Date-of-issue").value="";
+      document.getElementById("appliedDate").value="";
       document.getElementById("source").value="";
       document.getElementById("destination").value="";
       document.getElementById("class").value="";
@@ -162,7 +162,7 @@ function showUpdate(sr) {
   } else {
       var info = allForms[index];
       document.getElementById("srNo").value=info.sr;
-      document.getElementById("Date-of-issue").value=info.issuedDate;
+      document.getElementById("appliedDate").value=info.issuedDate;
       document.getElementById("source").value=info.source;
       document.getElementById("destination").value=info.destination;
       document.getElementById("class").value=info.className;
@@ -188,7 +188,7 @@ function updateForm() {
   var className = document.getElementById("class").value;
   var source = document.getElementById("source").value;
   var destination = document.getElementById("destination").value;
-  var issuedDate = document.getElementById("Date-of-issue").value;
+  var issuedDate = document.getElementById("appliedDate").value;
 //   var expiredDate = document.getElementById("Date-of-expiry").value;
   var voucher = document.getElementById("voucher-no").value;
   var issuedStatus = "Pending";
@@ -204,7 +204,7 @@ function updateForm() {
       className:className,
       source:source,
       destination:destination,
-      issuedDate:issuedDate,
+      appliedDate:appliedDate,
     //   expiredDate:expiredDate,
       voucher:voucher,
       status: issuedStatus
@@ -578,7 +578,7 @@ function getAllFormsForAdmin(){
       <td>${info.sr}</td>
       <td>${info.division}</td>
       <td>${info.name}</td>
-      <td>${info.issuedDate}</td>
+      <td>${info.appliedDate}</td>
       <td>${info.source}</td>
       <td>${info.destination}</td>
       <td>${info.className}</td>

@@ -21,3 +21,24 @@ if(userEmail.value=null || userPw.value=null ){
 <body onload="displayDate()">
  <p>The current date is: <span id="date"></span></p>
 </body>
+
+
+CREATE TABLE student_details (
+    Sr_no INT AUTO_INCREMENT,
+    clg_id VARCHAR(225) PRIMARY KEY,
+    name VARCHAR(225),
+    age INT,
+    dept VARCHAR(220),
+    year VARCHAR(225),
+    division VARCHAR(20),
+    gender VARCHAR(220),
+    vacation VARCHAR(30),
+    source VARCHAR(223),
+    destination VARCHAR(334),
+    class VARCHAR(20),
+    applied_date DATE,
+    issued_date DATE,
+    expiry_date DATE,
+    voucher_no VARCHAR(30),
+    UNIQUE KEY unique_Sr_no (Sr_no)
+);
